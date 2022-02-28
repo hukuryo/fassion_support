@@ -3,12 +3,12 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
- <div class="form-floating mb-3">
+ <div class="form_group pt-4 pb-3">
     <label for="floatingInput">メールアドレス</label>
-    <input type="email" class="form-control" id="floatingInput" placeholder="メールアドレス">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
 　</div>
 
-  <div class="actions">
+   <div class="text-center">
     <%= f.submit "新しいパスワードを設定する", class: "btn btn-sm btn-success" %>
   </div><br>
 <% end %>
