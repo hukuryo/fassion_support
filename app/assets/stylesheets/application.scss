@@ -1,0 +1,40 @@
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+body {
+  background-color: beige;
+}
+
+.card-text-1 {
+  font-size: 15px;
+}
+
+.form-class, .js-comment-form-1 {
+  display: flex;
+}
+
+.img-post-show {
+  width: 100;
+}
+
+.comments-index {
+  background-color: #fff;
+  border: 1px #000 solid;
+}
+
+.comment-delete {
+  margin-left: auto;
+}
+
+.title-1 {
+  font-size: 25px;
+}
+
+.all-post-img{
+  width: 100%;
+}
+
+.success{
+  color: green;
+}

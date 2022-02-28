@@ -1,0 +1,28 @@
+<h2>管理者登録</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "admins/shared/error_messages", resource: resource %>
+
+  <div class="form-floating mb-3">
+    <label for="floatingInput">メールアドレス</label><br>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-10"><br>
+      <label for="floatingInput">パスワード</label><br>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-floating mb-3">
+    <label for="floatingInput">パスワード確認</label><br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+  <div class="actions">
+      <%= f.submit "新規登録", class: "btn btn-sm btn-success" %>
+  </div><br>
+<% end %>
+
+<%= render "admins/shared/links" %>

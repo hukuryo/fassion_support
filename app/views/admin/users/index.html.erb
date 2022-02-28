@@ -1,0 +1,22 @@
+<h3>会員一覧</h3>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">ユーザー名</th>
+        <th scope="col">メールアドレス</th>
+        <th scope="col">投稿数</th>
+      </tr>
+    </thead>
+  <% @users.each do |user| %>
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td><%= user.name %></td>
+        <td><%= user.email%></td>
+        <td><%= user.posts.count %>件</td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
