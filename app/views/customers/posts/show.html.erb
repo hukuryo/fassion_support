@@ -21,7 +21,6 @@
           <h2>コーデのポイント説明</h2>
           <p id="text"><%= @post.introduction %></p>
           <% if @post.user == current_user %>
-            <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
             <%= link_to '削除する', post_path(@post.id),method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %><br>
           <% end %>
           <%= link_to '投稿一覧ページへ', posts_path, class: "btn btn-dark mt-3" %>
