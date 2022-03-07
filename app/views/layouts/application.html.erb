@@ -4,6 +4,8 @@
     <title>FassionSupport</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/3f36a28ae9.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -38,16 +40,19 @@
                 </div>
               <% elsif user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to 'MY PAGE', user_path(current_user), class: 'nav-link text-white', style: "font-family: cursive;"  %>
+                  <%= link_to 'MY PAGE', user_path(current_user), class: 'nav-link text-white'  %>
+                </li>
+                <!--<li class="nav-item">-->
+                <!--  <%#= link_to "いいねした投稿", likes_user_path(@user), class: 'nav-link text-white' %>-->
+                <!--</li>-->
+                <li class="nav-item">
+                  <%= link_to '新規投稿', posts_new_path, class: 'nav-link text-white' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'NEW POST', posts_new_path, class: 'nav-link text-white', style: "font-family: cursive;" %>
+                  <%= link_to '投稿一覧', posts_path, class: 'nav-link text-white' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to 'ALL POST', posts_path, class: 'nav-link text-white', style: "font-family: cursive;" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete, class: 'nav-link text-white', style: "font-family: cursive;" %>
+                  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link text-white' %>
                 </li>
               <div class="search-form">
                 <%= form_with url: search_path, class: "form-class", method: :get, local: true do |f| %>
@@ -58,10 +63,10 @@
 
               <% else %>
                 <li class="nav-item">
-                  <%= link_to "SIGN UP", new_user_registration_path, class: 'nav-link text-white', style: "font-family: cursive;" %>
+                  <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-white' %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "LOG IN", new_user_session_path, class: 'nav-link text-white', style: "font-family: cursive;" %>
+                  <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-white' %>
                 </li>
               <% end %>
             </ul>
@@ -69,7 +74,17 @@
           </div>
         </nav>
       </header>
-      <p class="success"><%= flash[:notice] %></p>
+      <% if flash[:notice] %>
+        <div class="alert alert-primary" role="alert">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% end %>
+      
+      <% if flash[:alert] %>
+        <div class="alert alert-danger" role="alert">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
     <main class="mb-auto">
       <%= yield %>
     </main>

@@ -38,3 +38,11 @@ body {
 .success{
   color: green;
 }
+
+.post-img{
+  width: 50%;
+}
+
+.notification:not(:last-child){
+	margin-bottom: 0;
+}
