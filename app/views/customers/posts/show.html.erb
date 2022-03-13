@@ -57,13 +57,11 @@
           <p class="panel-heading">
             コメント
           </p>
-          <div class="panel-block">
-            <p class="control">
-              <%= form_with(model:[@post, @comment], local: true) do |f| %>
-                <%= f.text_area :text, :size=>"60x3",placeholder: "コメントする" %>
-                <%= f.submit "送信する", class: "btn btn-success mb-4" %>
-              <% end %>
-            </p>
+          <div class="form-floating">
+            <%= form_with(model:[@post, @comment], local: true) do |f| %>
+              <%= f.text_area :text, placeholder: "コメントする", class: "form-control" %>
+              <%= f.submit "送信する", class: "btn btn-success mb-4" %>
+            <% end %>
           </div>
           <p>コメント件数：<%= @post.comments.count %></p>
           <% @post.comments.each do |comment| %>

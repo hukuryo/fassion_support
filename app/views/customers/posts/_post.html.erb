@@ -1,7 +1,32 @@
-<% @user.likes.each do |likes| %>
-    <%= link_to image_tag( post.image.variant(resize: '100x100') ), post_path(post.id) %>
-    <%= link_to post.user.name, user_path(post.user.id) %>
-    <i class="fa fa-heart unlike-btn"></i>
-    <%= post.likes.length %>
-    <%= link_to post.name, post_path(post.id) %>
-<% end %>
+<div class="card col-md-4">
+    <div class="card-body one-post">
+      <p class="caption" <%=@hidden%>>投稿者：<%= post.user.name %></p>
+      <%= link_to post_path(post) do %>
+        <p class="caption mb-0">TITLE：<%= post.name %></p><br>
+      <% end %>
+      <%= link_to post_path(post) do %>
+        <%= attachment_image_tag post, :image, format: 'jpeg', class: "all-post-img" %>
+      <% end %>
+      <p class="list-group-item caption">ジャンル：<%= post.genre&.name %></p>
+      <div class="card-body">
+        <div class="list-group">
+          <div class="list-group-item">
+            <% if post.liked_by?(current_user) %>
+              <%= link_to post_likes_path(post), method: :delete, class: "favorite_btn" do %>
+               ♥<%= post.likes.count %> いいね
+              <% end %>
+            <% else %>
+              <%= link_to post_likes_path(post), method: :post, class: "favorite_btn" do %>
+                ♡<%= post.likes.count %> いいね
+              <% end %>
+            <% end %>
+          </div>
+          <div class="list-group-item">
+            <%= link_to post_path(post) do %>
+            <p class="caption"><%= "#{post.comments.count}件のコメント" %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

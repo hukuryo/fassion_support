@@ -4,7 +4,7 @@
     <title>FassionSupport</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/3f36a28ae9.js" crossorigin="anonymous"></script>
@@ -42,9 +42,9 @@
                 <li class="nav-item">
                   <%= link_to 'MY PAGE', user_path(current_user), class: 'nav-link text-white'  %>
                 </li>
-                <!--<li class="nav-item">-->
-                <!--  <%#= link_to "いいねした投稿", likes_user_path(@user), class: 'nav-link text-white' %>-->
-                <!--</li>-->
+                <li class="nav-item">
+                  <%= link_to "いいねした投稿", likes_user_path(current_user), class: 'nav-link text-white' %>
+                </li>
                 <li class="nav-item">
                   <%= link_to '新規投稿', posts_new_path, class: 'nav-link text-white' %>
                 </li>
@@ -79,7 +79,7 @@
           <p class="notice"><%= notice %></p>
         </div>
       <% end %>
-      
+
       <% if flash[:alert] %>
         <div class="alert alert-danger" role="alert">
           <p class="alert"><%= alert %></p>

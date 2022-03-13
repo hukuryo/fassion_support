@@ -1,11 +1,11 @@
 class Customers::UsersController < ApplicationController
-    # before_action :set_user, only: [:likes]
+    before_action :set_user, only: [:likes]
     
-    # def likes
-    #     @user = current_user
-    #     likes = Like.where(user_id: @user.id).pluck(:post_id)
-    #     @like_posts = Post.find(likes)
-    # end
+    def likes
+        @user = current_user
+        likes = Like.where(user_id: @user.id).pluck(:post_id)
+        @like_posts = Post.find(likes)
+    end
     
     def show
         @hidden = 'style="display:none"'
@@ -29,8 +29,8 @@ class Customers::UsersController < ApplicationController
             params.require(:user).permit(:name)
         end
         
-        # def set_user
-        #     @user = User.find(params[:id])
-        # end
+        def set_user
+            @user = User.find(params[:id])
+        end
 
 end
