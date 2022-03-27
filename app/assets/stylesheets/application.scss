@@ -4,7 +4,44 @@
 
 body {
   background-color: beige;
-  background-image: image-url("hoge.jpg");
+}
+
+header{
+  text-align: center;
+  background-image: image-url("mohammad-alizade-62t_kKa2YlA-unsplash.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.top-page{
+  background-image: image-url("kitera-dent-4aZBWnYy3qM-unsplash.jpg");
+  background-size: cover;
+  padding: 150px;
+  height: 100%;
+  color: white;
+}
+
+.newpost-page{
+  background-image: image-url("jasper-garratt-im0GJGzNT5Y-unsplash.jpg");
+  background-size: cover;
+  height: 100%;
+  color: white;
+}
+
+.signup-page{
+  background-image: image-url("tim-swaan-eOpewngf68w-unsplash.jpg");
+  background-size: cover;
+  padding: 95px;
+  height: 100vh;
+  color: white;
+}
+
+.login-page{
+  background-image: image-url("tim-swaan-eOpewngf68w-unsplash.jpg");
+  background-size: cover;
+  padding: 160px;
+  height: 100vh;
+  color: white;
 }
 
 .card-text-1 {
@@ -44,6 +81,39 @@ body {
   width: 50%;
 }
 
+.like-btn {
+ width: 25px;
+ height: 30px;
+ font-size: 22px;
+ color: red; 
+ margin-left: 20px;
+ }
+ 
+ .unlike-btn {
+ width: 25px;
+ height: 30px;
+ font-size: 22px;
+ color: #808080;
+ margin-left: 20px;
+ }
+
 .notification:not(:last-child){
 	margin-bottom: 0;
+}
+
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+.arrow{
+  width:      50px;
+  height:     50px;
+}
+
+footer{
+  margin-top: 130px;
+  width: 100%;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }

@@ -1,30 +1,32 @@
-<div class="container">
-  <div class = "row" >
-    <div class="col">
-      <h3 class = "font-weight-normal mt-3 text-center">新規投稿</h3>
+<div class="newpost-page">
+  <div class="container">
+    <div class = "row" >
+      <div class="col">
+        <h3 class = "font-weight-normal mt-5 text-center"><i class="fas fa-file-alt"></i> 新規投稿</h3>
+      </div>
     </div>
-  </div>
-
-  <div class="col-md-4 offset-md-4">
-    <h2 class="text-center pt-5"></h2>
-    <%= form_with model: @post do |f| %>
-      <div class="mb-3">
-        <label for="formFile" class="form-label">写真を載せてください！</label>
-        <%= f.attachment_field :image, class: "form-control" %>
-      </div>
-      <div class="mb-3">
-        <label for="formFile" class="form-label">ジャンルを選択してください！</label><br>
-        <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"}, {class: "form-select form-select-lg mb-3", selected: 1 } %>
-      </div>
-      <div class="form_group pt-4 pb-3">
-        <%= f.text_field :name, placeholder: "タイトルを入力してください！", class: "form-control" %>
-      </div>
-      <div class="form-group" >
-        <%= f.text_area :introduction, placeholder: "コーデのポイントを教えてください！", rows: 7, class: "form-control" %>
-      </div>
-      <div class="text-center">
-        <%= f.submit "POST", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+  
+    <div class="col-md-4 offset-md-4 mb-4">
+      <h2 class="text-center pt-3"></h2>
+      <%= form_with model: @post do |f| %>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">写真を載せてください！</label>
+          <%= f.attachment_field :image, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+          <label for="formFile" class="form-label">ジャンルを選択してください！</label><br>
+          <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"}, {class: "form-select", selected: 1 } %>
+        </div>
+        <div class="form_group pt-3 pb-4">
+          <%= f.text_field :name, placeholder: "タイトルを入力してください！", class: "form-control" %>
+        </div>
+        <div class="form-group" >
+          <%= f.text_area :introduction, placeholder: "コーデのポイントを教えてください！", rows: 7, class: "form-control" %>
+        </div>
+        <div class="text-center">
+          <%= f.submit "POST", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
