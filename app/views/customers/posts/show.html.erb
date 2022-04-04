@@ -59,6 +59,9 @@
               <%= f.text_area :text, placeholder: "コメントする", class: "form-control" %>
               <%= f.submit "送信する", class: "btn btn-success mb-4" %>
             <% end %>
+            <% if @post.user == current_user %>
+              <%= link_to '投稿を編集する', edit_post_path(@post.id), class: "btn btn-primary" %>
+            <% end %>
           </div>
           <p><i class="fas fa-comment"></i> <%= @post.comments.count %>件のコメント</p>
           <% @post.comments.each do |comment| %>
