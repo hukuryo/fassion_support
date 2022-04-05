@@ -3,25 +3,25 @@ class Customers::CommentsController < ApplicationController
 
     def create
         post = Post.find(params[:post_id])
-            comment = current_user.comments.new(comments_params)
-            comment.post_id = post.id
-        if comment.save!
+        comment = current_user.comments.new(comments_params)
+        comment.post_id = post.id
+        if comment.save
             flash[:notice] = "コメントしました！"
             redirect_to post_path(post)
         else
-            @comments = comment.all
-            render 'index'
+            flash[:alert] = "コメントを入力してください。"
+            redirect_to post_path(post)
         end
     end
-    
+
     def destroy
         post = Post.find(params[:post_id])
         if Comment.find_by(id: params[:id], post_id: params[:post_id]).destroy
-           flash[:notice] = "コメントを削除しました！"
-           redirect_to post_path(post)
+            flash[:alert] = "コメントを削除しました！"
+            redirect_to post_path(post)
         else
-           render 'index'
-        end 
+            redirect_to post_path(post)
+        end
     end
 
 private

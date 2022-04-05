@@ -11,6 +11,11 @@ class Customers::PostsController < ApplicationController
     def edit
         @post = Post.find(params[:id])
         @genres = Genre.all
+        if @post.user == current_user
+            render "edit"
+        else
+            redirect_to posts_path(@post.id)
+        end
     end
 
     def likes
@@ -31,7 +36,7 @@ class Customers::PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        if @post.update!
+        if @post.update(posts_params)
            flash[:notice] = "投稿を編集しました！"
            redirect_to posts_path(@post.id)
         else
@@ -40,8 +45,8 @@ class Customers::PostsController < ApplicationController
     end
 
     def create
-        post = current_user.posts.build(posts_params)
-        if post.save!
+        @post = current_user.posts.build(posts_params)
+        if @post.save
            flash[:notice] = "投稿しました！"
            redirect_to posts_path
         else
@@ -52,10 +57,12 @@ class Customers::PostsController < ApplicationController
 
     def destroy
         @post = Post.find(params[:id])
-        if @post.destroy!
+        if @post.destroy
            flash[:alert] = "投稿を削除しました！"
            redirect_to posts_path
         else
+           @posts = post.includes(:user)
+           @genres = Genre.all
            render 'new'
         end
     end
