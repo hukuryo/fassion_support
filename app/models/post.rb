@@ -10,6 +10,7 @@ with_options presence: true do
   validates :name
   validates :introduction
   validates :image
+  validates :genre_id
 end
 
 def self.search(keyword)

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   scope module: :customers do
-    resources :users, only: [:edit, :update, :show] do
+    resources :users, only: [:index, :edit, :update, :show] do
       member do
         get :likes
       end

@@ -22,7 +22,6 @@ FASSION SUPPORT
 
 設計書
 
-
 チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1AhqxSLyEvHI1qpbPR00qpxMgOl19bJknp4NFcau4tzM/edit#gid=0
 
@@ -32,23 +31,3 @@ https://docs.google.com/spreadsheets/d/1AhqxSLyEvHI1qpbPR00qpxMgOl19bJknp4NFcau4
 - フレームワーク：Ruby on Rails(ver 5.2.6)
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
-使用素材
-
-
-<% @posts.each do |post| %>
-- <% if logged_in? %>
-    <% if current_user.own?(post)%>
-      <%= link_to post_path(post), method: :delete do, remote: ture do %>
-        <%= icon 'far', 'trash-alt' %>
-      <%= link_to edit_post_path(post) do, remote: ture do %>
-        <%= icon 'far', 'edit' %>
-  <% else %>
-      <% if current_user&.like?(post) %>
-         <%= render 'likes/unlike_button', post: post %>
-        <% else %>
-          <%= render 'likes/like_button', post: post %>
-      <% end %>    
-    <% end %>  
-  <% end %>
-<% end %>

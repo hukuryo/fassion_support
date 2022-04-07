@@ -1,12 +1,11 @@
 <div class="newpost-page">
   <div class="container">
     <div class = "row" >
-      <div class="col">
-        <h3 class = "font-weight-normal mt-5 text-center "><i class="fas fa-file-alt"></i> 新規投稿</h3>
+      <div class="col mb-5">
+        <h3 class = "font-weight-normal mt-5 text-center"><i class="fas fa-file-alt"></i> 新規投稿</h3>
       </div>
     </div>
-    <div class="col-md-4 offset-md-4 mb-4">
-      <h2 class="text-center pt-3"></h2>
+    <div class="col-md-4 offset-md-4">
       <%= form_with model: @post, local: true do |f| %>
         <div class="mb-3">
           <label for="formFile" class="form-label">写真を載せてください！</label>
@@ -14,7 +13,7 @@
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">ジャンルを選択してください！</label><br>
-          <%= f.collection_select :genre_id, @genres, :id, :name, {prompt: "選択してください"}, {class: "form-select", selected: 1 } %>
+          <%= f.collection_select :genre_id, @genres, :id, :name, {selected: 1}, {class: "form-select", selected: 1 } %>
         </div>
         <div class="form_group pt-3 pb-4">
           <%= f.text_field :name, placeholder: "タイトルを入力してください！", class: "form-control" %>

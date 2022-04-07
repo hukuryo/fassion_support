@@ -40,7 +40,7 @@ class Customers::PostsController < ApplicationController
            flash[:notice] = "投稿を編集しました！"
            redirect_to posts_path(@post.id)
         else
-            render 'edit'
+           render 'edit'
         end
     end
 
@@ -50,7 +50,7 @@ class Customers::PostsController < ApplicationController
            flash[:notice] = "投稿しました！"
            redirect_to posts_path
         else
-           @posts = post.includes(:user)
+           flash[:alert] = "内容を入力してください"
            render 'new'
         end
     end
@@ -61,8 +61,6 @@ class Customers::PostsController < ApplicationController
            flash[:alert] = "投稿を削除しました！"
            redirect_to posts_path
         else
-           @posts = post.includes(:user)
-           @genres = Genre.all
            render 'new'
         end
     end
@@ -77,6 +75,6 @@ class Customers::PostsController < ApplicationController
     private
 
     def posts_params
-        params.require(:post).permit(:genre_id, :name, :image, :introduction, :comment_id)
+        params.require(:post).permit(:genre_id, :name, :image, :introduction)
     end
 end
