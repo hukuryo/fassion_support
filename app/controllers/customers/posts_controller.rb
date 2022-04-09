@@ -34,16 +34,6 @@ class Customers::PostsController < ApplicationController
         @comment = Comment.new
     end
 
-    def update
-        @post = Post.find(params[:id])
-        if @post.update(posts_params)
-           flash[:notice] = "投稿を編集しました！"
-           redirect_to posts_path(@post.id)
-        else
-           render 'edit'
-        end
-    end
-
     def create
         @post = current_user.posts.build(posts_params)
         if @post.save
@@ -51,6 +41,8 @@ class Customers::PostsController < ApplicationController
            redirect_to posts_path
         else
            flash[:alert] = "内容を入力してください"
+            @post = Post.new
+            @genres = Genre.all
            render 'new'
         end
     end
@@ -62,6 +54,17 @@ class Customers::PostsController < ApplicationController
            redirect_to posts_path
         else
            render 'new'
+        end
+    end
+
+    def update
+        @post = Post.find(params[:id])
+        if @post.update(posts_params)
+           flash[:notice] = "投稿を編集しました！"
+           redirect_to posts_path(@post.id)
+        else
+           flash[:alert] = "内容を入力してください"
+           render 'edit'
         end
     end
 
