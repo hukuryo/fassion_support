@@ -2,7 +2,7 @@
     <div class="card-body one-post">
       <p class="caption" <%=@hidden%>><i class="fas fa-user"></i>  <%= post.user.name %></p>
       <%= link_to post_path(post) do %>
-        <p class="caption mb-0">TITLE：<%= post.name %></p><br>
+        <h5 class="caption mb-0"><%= post.name %></h5><br>
       <% end %>
       <%= link_to post_path(post) do %>
         <%= attachment_image_tag post, :image, format: 'jpeg', class: "all-post-img" %>

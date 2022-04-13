@@ -3,7 +3,7 @@
   <div class="hero-body">
     <div class="container">
       <h2 class="title">
-        投稿詳細
+        <i class="fas fa-sticky-note"></i> 投稿詳細
       </h2>
     </div>
   </div>
@@ -22,7 +22,7 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4">TITLE：<%= @post.name %>
+                <p class="title is-4 pl-2"><strong><%= @post.name %></strong>
                   <% if @post.liked_by?(current_user) %>
                     <%= link_to post_likes_path(@post), method: :delete, class: "favorite_btn" do %>
                       <i class="fas fa-heart like-btn"></i><%= @post.likes.count %> 件のいいね
@@ -41,7 +41,7 @@
                   <th>コーデのポイント</th>
                 </tr>
                 <tr>
-                  <td><%= simple_format @post.introduction %></td>
+                  <td><%= @post.introduction %></td>
                 </tr>
               </table>
               <% if @post.user == current_user %>
