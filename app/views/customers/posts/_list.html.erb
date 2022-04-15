@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
   <div class="card col-md-4">
     <div class="card-body one-post">
-      <p class="caption" <%=@hidden%>><i class="fas fa-user"></i> <%= post.user.name %></p>
+      <p class="caption"><i class="fas fa-user"></i> <%= post.user.name %></p>
       <%= link_to post_path(post) do %>
         <h5 class="caption mb-0 post-title text-dark"><%= post.name %></h5><br>
       <% end %>
