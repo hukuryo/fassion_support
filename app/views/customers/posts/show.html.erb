@@ -18,7 +18,7 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4 pl-2"><strong><%= @post.name %></strong>
+                <p class="title is-4 pl-2"><i class="fas fa-camera"></i> <strong><%= @post.name %></strong>
                   <% if @post.liked_by?(current_user) %>
                     <%= link_to post_likes_path(@post), method: :delete, class: "favorite_btn" do %>
                       <i class="fas fa-heart like-btn"></i><%= @post.likes.count %> 件のいいね
@@ -34,7 +34,7 @@
             <div class="content">
               <table class="table is-narrow">
                 <tr>
-                  <th>コーデのポイント</th>
+                  <th><i class="fas fa-map-marker"></i> コーデのポイント</th>
                 </tr>
                 <tr>
                   <td><%= @post.introduction %></td>

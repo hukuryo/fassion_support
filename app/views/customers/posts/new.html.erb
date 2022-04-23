@@ -8,11 +8,11 @@
     <div class="col-md-4 offset-md-4">
       <%= form_with model: @post, local: true do |f| %>
         <div class="mb-3">
-          <label for="formFile" class="form-label">写真を載せてください！</label>
+          <label for="formFile" class="form-label"><i class="fas fa-camera"></i> 写真を載せてください！</label>
           <%= f.attachment_field :image, class: "form-control" %>
         </div>
         <div class="mb-3">
-          <label for="formFile" class="form-label">ジャンルを選択してください！</label><br>
+          <label for="formFile" class="form-label"><i class="fas fa-neuter"></i> ジャンルを選択してください！</label><br>
           <%= f.collection_select :genre_id, @genres, :id, :name, {selected: 1}, {class: "form-select", selected: 1 } %>
         </div>
         <div class="form_group pt-3 pb-4">
