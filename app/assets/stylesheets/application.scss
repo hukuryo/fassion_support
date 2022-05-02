@@ -20,6 +20,12 @@ header{
   color: white;
 }
 
+.top-text{
+  color: white;
+  margin-top: 400px;
+  text-align: center;
+}
+
 .newpost-page{
   background-image: image-url("tommy-lisbin-xr-y6Ruw7K8-unsplash.jpg");
   background-size: cover;
@@ -121,4 +127,19 @@ footer{
   width: 100%;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
+}
+
+.fixed-background {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.background-1 {
+  background-image: url("navi-M4GpKa7_eCw-unsplash.jpg");
+}
+
+.background-2 {
+  background-image: url("tom-podmore-ZkWsC63ultE-unsplash.jpg");
 }
