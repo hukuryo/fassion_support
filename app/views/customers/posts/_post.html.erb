@@ -1,6 +1,6 @@
 <div class="card col-md-4">
     <div class="card-body one-post">
-      <p class="caption" <%=@hidden%>><i class="fas fa-user"></i>  <%= post.user.name %></p>
+      <p class="caption"><i class="fas fa-user"></i>  <%= post.user.name %></p>
       <%= link_to post_path(post) do %>
         <h5 class="caption mb-0 text-dark post-title"><%= post.name %></h5><br>
       <% end %>
@@ -10,16 +10,8 @@
       <p class="list-group-item caption"><i class="fas fa-neuter"></i> <%= post.genre&.name %></p>
       <div class="card-body">
         <div class="list-group">
-          <div class="list-group-item">
-            <% if post.liked_by?(current_user) %>
-              <%= link_to post_likes_path(post), method: :delete, class: "favorite_btn" do %>
-               <i class="fas fa-heart like-btn"></i><%= post.likes.count %>件のいいね
-              <% end %>
-            <% else %>
-              <%= link_to post_likes_path(post), method: :post, class: "favorite_btn" do %>
-                <i class="far fa-heart unlike-btn"></i><%= post.likes.count %>件のいいね
-              <% end %>
-            <% end %>
+          <div class="list-group-item" id="likes_buttons_<%= post.id %>">
+            <%= render 'customers/likes/like', post: post %>
           </div>
           <div class="list-group-item">
             <%= link_to post_path(post) do %>

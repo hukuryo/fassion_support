@@ -7,10 +7,10 @@ class Customers::CommentsController < ApplicationController
         comment.post_id = @post.id
         if comment.save
             flash[:notice] = "コメントしました！"
-            redirect_to post_path(post)
+            redirect_to post_path(@post)
         else
             flash[:alert] = "内容が空白です"
-            redirect_to post_path(post)
+            redirect_to post_path(@post)
         end
     end
 

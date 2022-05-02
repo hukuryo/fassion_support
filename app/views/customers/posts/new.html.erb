@@ -16,13 +16,13 @@
           <%= f.collection_select :genre_id, @genres, :id, :name, {selected: 1}, {class: "form-select", selected: 1 } %>
         </div>
         <div class="form_group pt-3 pb-4">
-          <%= f.text_field :name, placeholder: "タイトルを入力してください！", class: "form-control" %>
+          <%= f.text_field :name, placeholder: "タイトル", class: "form-control" %>
         </div>
         <div class="form-group" >
-          <%= f.text_area :introduction, placeholder: "コーデのポイントを教えてください！", rows: 7, class: "form-control" %>
+          <%= f.text_area :introduction, placeholder: "コーデのポイント", rows: 7, class: "form-control" %>
         </div>
         <div class="text-center">
-          <%= f.submit "POST", class: "btn btn-primary" %>
+          <%= f.submit "投稿する", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
