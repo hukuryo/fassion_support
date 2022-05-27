@@ -19,7 +19,7 @@ class Customers::PostsController < ApplicationController
     end
 
     def likes
-        @user = current_user
+        @user = User.find(params[:id])
         likes = Like.where(user_id: @user.id).pluck(:post_id)
         @like_posts = Post.find(likes)
     end

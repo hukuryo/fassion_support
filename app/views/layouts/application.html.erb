@@ -75,22 +75,22 @@
           </div>
         </nav>
       </header>
-        <% if flash[:notice] %>
-          <div class="alert alert-primary mb-0" role="alert">
-            <p class="notice"><%= notice %></p>
-          </div>
-        <% end %>
+      <% if flash[:notice] %>
+        <div class="alert alert-primary mb-0" role="alert">
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% end %>
 
-        <% if flash[:alert] %>
-          <div class="alert alert-danger mb-0" role="alert">
-            <p class="alert"><%= alert %></p>
-          </div>
-        <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger mb-0" role="alert">
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
       <%= yield %>
 
       <span id="back">
         <a href="">
-          <%= image_tag asset_path('top.jpeg'), data: {"turbolinks"=>false}, class: "arrow" %>
+          <i class="fas fa-chevron-up fa-3x top-icon"></i>
         </a>
       </span>
 

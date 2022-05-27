@@ -11,7 +11,6 @@ header{
   background-size: cover;
   color: white;
 }
-
 .top-page{
   background-image: image-url("kitera-dent-4aZBWnYy3qM-unsplash.jpg");
   background-size: cover;
@@ -24,6 +23,21 @@ header{
   color: white;
   margin-top: 400px;
   text-align: center;
+}
+
+.fixed-background {
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.background-1 {
+  background-image: url("navi-M4GpKa7_eCw-unsplash.jpg");
+}
+
+.background-2 {
+  background-image: url("tom-podmore-ZkWsC63ultE-unsplash.jpg");
 }
 
 .newpost-page{
@@ -122,24 +136,13 @@ header{
   height:     50px;
 }
 
+.top-icon{
+  color: black;
+}
+
 footer{
   margin-top: 130px;
   width: 100%;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
-}
-
-.fixed-background {
-  min-height: 100vh;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-}
-
-.background-1 {
-  background-image: url("navi-M4GpKa7_eCw-unsplash.jpg");
-}
-
-.background-2 {
-  background-image: url("tom-podmore-ZkWsC63ultE-unsplash.jpg");
 }

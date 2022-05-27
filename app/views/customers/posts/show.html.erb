@@ -11,7 +11,7 @@
       <div class="column is-7">
         <div class="card">
           <div class="card-image">
-            <figure class="image is-4by3">
+            <figure class="show-image">
               <%= attachment_image_tag @post, :image, format: 'jpeg', class: "post-img" %>
             </figure>
           </div>
@@ -26,7 +26,6 @@
               <table class="table is-narrow">
                 <tr>
                   <th><i class="fas fa-map-marker"></i> コーデのポイント</th>
-
                 </tr>
                 <tr>
                   <td><%= @post.introduction %></td>
@@ -35,6 +34,9 @@
               <% if @post.user == current_user %>
                 <%= link_to '投稿を削除', post_path(@post.id),method: :delete, "data-confirm"=>"本当に消しますか？", class: "btn btn-danger" %>
               <% end %>
+              <% if @post.user == current_user %>
+              <%= link_to '投稿を編集', edit_post_path(@post.id), class: "btn btn-primary" %>
+            <% end %>
             </div>
           </div>
         </div>
@@ -45,9 +47,6 @@
             <%= form_with(model:[@post, @comment], local: true) do |f| %>
               <%= f.text_area :text, placeholder: "コメントを入力", class: "form-control" %>
               <%= f.submit "コメントする", class: "btn btn-success mb-4" %>
-            <% end %>
-            <% if @post.user == current_user %>
-              <%= link_to '投稿を編集する', edit_post_path(@post.id), class: "btn btn-primary" %>
             <% end %>
           </div>
           <p><i class="fas fa-comment"></i> <%= @post.comments.count %>件のコメント</p>
