@@ -6,14 +6,33 @@ body {
   background-color: beige;
 }
 
+img{
+  max-width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+// header
+
 header{
   text-align: center;
   background-image: image-url("mohammad-alizade-62t_kKa2YlA-unsplash.jpg");
   background-size: cover;
   color: white;
-  position: fixed; 
+  position: fixed;
   width: 100%;
   z-index: 10;
+}
+
+.search-form{
+  padding-top: 13px;
 }
 
 .top-page{
@@ -153,9 +172,59 @@ header{
   color: black;
 }
 
-footer{
-  margin-top: 130px;
-  width: 100%;
-  position: absolute;/*←絶対位置*/
-  bottom: 0; /*下に固定*/
+// footer{
+//   margin-top: 130px;
+//   width: 100%;
+//   position: absolute;/*←絶対位置*/
+//   bottom: 0; /*下に固定*/
+// }
+
+
+
+// home
+
+.wrapper{
+  margin: 0 50px;
+}
+
+#home-main{
+  margin-top: 200px;
+  margin-bottom: 60px;
+}
+
+#home-main .flex{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+#home-main .flex-img{
+  width: 50%;
+  height: 450px;
+}
+
+#home-main .item{
+  padding-top: 120px;
+}
+
+#home-main .text-top{
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+
+
+
+// footer
+
+#home-footer{
+  background-color: #333;
+  padding: 20px 0;
+}
+
+#home-footer .copy{
+  text-align: center;
+  font-size: 14px;
+  margin: 0; 
+  color: #fff;
 }
