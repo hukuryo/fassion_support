@@ -87,7 +87,7 @@ header{
 .login-page{
   background-image: image-url("tim-swaan-eOpewngf68w-unsplash.jpg");
   background-size: cover;
-  padding: 160px;
+  padding-top: 160px;
   height: 100vh;
   color: white;
   margin-top: -3px;
@@ -183,8 +183,18 @@ header{
 
 // home
 
+
+// top-header
+
+#top-header .top-visual{
+  height: 1000px;
+  width: 100%;
+  margin-top: 131px;
+  background-size: cover;
+}
+
 .wrapper{
-  margin: 0 50px;
+  margin: 0 auto;
 }
 
 #home-main{
@@ -225,6 +235,13 @@ header{
 #home-footer .copy{
   text-align: center;
   font-size: 14px;
-  margin: 0; 
+  margin: 0;
   color: #fff;
+}
+
+
+@media screen and (max-width: 767px) {
+  .login-page{
+    padding: 160px 70px 0 70px;
+  }
 }
